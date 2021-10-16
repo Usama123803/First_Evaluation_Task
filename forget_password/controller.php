@@ -1,11 +1,14 @@
 <?php 
 
 class User {
+    //for db connection
     function __construct() {
         require_once('model_db.php');
         
       }
- 
+    
+ //Check email the email is exist or not
+ //The password is reset
   function forgetPassword($email,$new_password)
   {
             $user_model=new userModel();
@@ -18,6 +21,7 @@ class User {
             }
             else
             {
+                //The password will reset here.
                 $response=$user_model->resetPassword($email,md5($new_password));
                 if($response)
                 {
@@ -26,6 +30,7 @@ class User {
                 }
                 else
                 {
+                    //HTTP Protocol
                     echo json_encode("400");
                 }
                 
@@ -34,6 +39,8 @@ class User {
 
   }
 }
+//isset is used the specific keyword used or not
+
 $inputArr=['email','new_password'];
 if (isset($_POST['email']) && isset($_POST['new_password']))
 {
