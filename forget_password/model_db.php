@@ -1,15 +1,15 @@
 <?php
-require_once('connection.php');
+require_once('connection.php'); // iclude connection
 
 
 class userModel
 {
-      
+      // construct function
       function __construct() {
         global $conn;
         $conn=dbConnection();
       }
-      
+      // checking exist email
     function existEmail($email)
     { 
 
@@ -26,6 +26,7 @@ class userModel
         
       
     }
+      // when checking the existing email it will reset the new password  
     function resetPassword($email,$new_password)
     {
         global $conn;
