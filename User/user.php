@@ -22,31 +22,16 @@
         //signup user
         function signup()
         {
-            if($this->is_already_exists()){
-                
+            if($this->is_already_exists()){    
                 return false;
             }
             $query = "INSERT INTO user SET
             name=:name,
             password=:password,
             email=:email";
-           
-
             //prepare query
-            $stmt = $this->conn->prepare($query);
-
-            //Sanitize
-            $this->name = htmlspecialchars(strip_tags($this->name));
-            $this->email = htmlspecialchars(strip_tags($this->email));
-            $this->password = htmlspecialchars(strip_tags($this->password));
-
-            //bind values
-            
-            $stmt->bindParam(":name", $this->name);
-            $stmt->bindParam(":email", $this->email);
-            $stmt->bindParam(":password", $this->password);
+            $stmt = $this->conn->prepare($query);            
             //execute query
-            
             if($stmt->execute()){
                 
                 return true;
@@ -69,7 +54,7 @@
         public function is_already_exists()
         {
 
-            $query = "SELECT * FROM user WHERE name='".$this->name."'";
+            $query = "SELECT * FROM user WHERE email='".$this->email."'";
             //prepare query  statment of sql
             $stmt = $this->conn->prepare($query);
             // execute query
