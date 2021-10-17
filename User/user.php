@@ -47,8 +47,11 @@
             // prepare query statment
             $stmt = $this->conn->prepare($query);
             // execute query
-            $stmt = $this->execute();
-            return $stmt;
+            if($stmt->execute()){
+                
+                return true;
+            }
+            return false;
         }
 
         public function is_already_exists()

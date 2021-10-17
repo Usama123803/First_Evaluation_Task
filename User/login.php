@@ -6,7 +6,7 @@ include_once  '../User/user.php';
 
 // get database connection
 $database = new Database();
-$db=$database->getConnection();
+$db=$database->get_connection();
 
 // prepare user object
 $user = new User($db);
