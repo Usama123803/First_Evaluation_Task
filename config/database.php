@@ -2,10 +2,10 @@
 
 class Database
 {
-    private $username = "Employee Managment System";
+    private $username = "root";
     private $host= "localhost";
     private $db_name = "EMS";
-    private $password = "12345";
+    private $password = "";
     public $conn;
 
     public function get_connection()
