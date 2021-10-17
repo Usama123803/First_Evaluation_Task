@@ -1,6 +1,7 @@
 <?php
 
-    class User{
+    class User
+    {
         //Connection and Table name
         private $conn;
         private $table_name= "user";
@@ -51,6 +52,18 @@
                 return true;
             }
             return false;
+        }
+
+        // login user
+        function login(){
+            // select all query
+            $query = "SELECT `id`, `username`, `password`, `created` FROM ". $this->table_name ." WHERE username = '".$this->username."' AND password = '".$this->password."'";
+
+            // prepare query statment
+            $stmt = $this->conn->prepare($query);
+            // execute query
+            $stmt = $this->execute();
+            return $stmt;
         }
 
         public function is_already_exists()
