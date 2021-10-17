@@ -36,7 +36,11 @@ CREATE TABLE `employee` (
 
 -- --------------------------------------------------------
 
---
+--Inserting data into the employee table
+INSERT INTO `employee` (`id`, `name`, `email`, `password`, `reg_date`) VALUES
+(1, 'Nasik', 'nasik@gmail.com', YT12XU', '2021-10-16 16:20:40'),
+(2, 'Aaniq', 'aaniq@gmail.com', 'c2FqaWQxMjM', '2021-10-16 11:26:59'),
+ (3, 'Usama', 'usama@gmail.com', 'q2Fqa6PxGiM', '2021-10-16 19:23:39');
 -- Table structure for table `user`
 --
 
