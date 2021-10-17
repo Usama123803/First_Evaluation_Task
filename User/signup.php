@@ -37,7 +37,7 @@ elseif (empty($_POST['email']) && !preg_match ($pattern,$_POST['email']) ){
         else{
         $user_arr = array(
         "status" =>http_response_code(),
-        "message" => $user->name." Already exists!"
+        "message" => $user->email." Already exists!"
         );
     }
     
